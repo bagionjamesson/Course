@@ -1,1 +1,437 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #f5f7fa;
+  color: #204080;
+}
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #285197;
+  padding: 0 48px;
+  height: 70px;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+.navbar-logo {
+  width: 2em;
+  height: 2em;
+  margin-right: 14px;
+  border-radius: 0;      /* Square logo */
+  object-fit: cover;
+  vertical-align: middle;
+}
+.navbar-title {
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+.navbar-title .auto { color: #fff; }
+.navbar-title .learn { color: #FFD600; margin-left: 2px; }
+.navbar-title .ph { color: #fff; font-size: 1em; font-weight: 500; margin-left: 4px; }
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar-menu li { margin-left: 32px; }
+.navbar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  background: transparent;
+}
+.navbar-menu li a.active,
+.navbar-menu li a:hover {
+  background: #4666a3;
+  color: #fff;
+}
 
+/* Style for the dropdown indicator arrow */
+.navbar-menu > li.has-dropdown > a {
+  position: relative; /* Needed for absolute positioning of the arrow */
+  padding-right: 30px; /* Add some space for the arrow */
+}
+
+.navbar-menu > li.has-dropdown > a::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 12px; /* Adjust to position the arrow */
+  width: 0;
+  height: 0;
+  /* Create a downward-pointing triangle */
+  border-left: 4px solid transparent;  /* Triangle side */
+  border-right: 4px solid transparent; /* Triangle side */
+  border-top: 5px solid #cccccc;       /* Triangle base (points down), changed to light gray */
+  border-bottom: none; /* Ensure no bottom border */
+
+  /*
+    To vertically center the triangle (which is 5px high from border-top):
+    'top: 50%' positions the top of the ::after element at the link's vertical center.
+    The triangle then draws 5px downwards. We shift it up by half its height (2.5px).
+  */
+  transform: translateY(-2.5px);
+}
+
+/* ===== NAVBAR DROPDOWN STYLES ===== */
+.navbar-menu > li.has-dropdown {
+  position: relative; /* Establishes a positioning context for the submenu */
+}
+
+.navbar-menu > li.has-dropdown > .dropdown-submenu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position directly below the parent list item */
+  left: 0;
+  background-color: #285197; /* Background color similar to navbar */
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Subtle shadow for depth */
+  padding: 10px 0; /* Padding at the top and bottom of the submenu */
+  min-width: 220px; /* Minimum width of the dropdown */
+  z-index: 1000; /* Ensure dropdown appears above other content */
+  list-style: none; /* Remove default bullet points */
+  margin: 0; /* Reset default margin */
+}
+
+.navbar-menu > li.has-dropdown:hover > .dropdown-submenu {
+  display: block; /* Show the submenu on hover of the parent */
+}
+
+.navbar-menu > li.has-dropdown > .dropdown-submenu > li {
+  margin: 0; /* Reset margin for individual list items in submenu */
+}
+
+.navbar-menu > li.has-dropdown > .dropdown-submenu > li > a {
+  display: block; /* Make the link fill the entire list item for easier clicking */
+  padding: 10px 20px; /* Padding for submenu links */
+  color: #fff; /* Text color for submenu links */
+  text-decoration: none;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  font-size: 0.9em; /* Slightly smaller font size for submenu items */
+  font-weight: 500; /* Adjust font-weight if needed, less than main nav items */
+  background: transparent; /* Ensure no inherited background from parent 'a' */
+  border-radius: 0; /* Reset border-radius from parent 'a' styles */
+  transition: background-color 0.2s ease; /* Smooth transition for hover */
+}
+
+.navbar-menu > li.has-dropdown > .dropdown-submenu > li > a:hover {
+  background-color: #4666a3; /* Background color on hover, same as main nav link hover */
+  color: #fff; /* Ensure text color remains white on hover */
+}
+
+
+
+/* ===== SECTION 1: HERO ===== */
+.section-blue {
+  background: #b3c6e0;
+  color: #204080;
+  padding: 56px 0 48px 0;
+  text-align: center;
+}
+.section-blue .main-title {
+  font-size: 2.6em;
+  font-weight: 700;
+  margin-bottom: 18px;
+  margin-top: 32px;
+}
+.section-blue .subtitle {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+.start-btn {
+  background: #FFD600;
+  color: #285197;
+  font-weight: 700;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  text-decoration: none;
+  margin-top: 24px;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.start-btn:hover {
+  background: #ffe066;
+  color: #204080;
+}
+
+/* ===== SECTION 2: FEATURES ===== */
+.section-white {
+  background: #b3c6e0;
+  color: #204080;
+  padding: 56px 0 48px 0;
+  text-align: center;
+}
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.feature-box {
+  background: #ffffff;
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(40,81,151,0.13);
+  padding: 32px 28px;
+  width: 320px;
+  min-height: 220px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.feature-box:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(40,81,151,0.18);
+  background: #2a60b1;
+}
+.feature-title {
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #FFD600;
+}
+.feature-desc {
+  font-size: 1em;
+  color: #000000;
+  line-height: 1.5;
+}
+
+/* ===== SECTION 2: LESSON/VIDEO PRESENTATION ===== */
+.lesson-video-container {
+  background: #fff;
+  border-radius: 18px;
+  min-height: 380px;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 32px; /* Keep top margin */
+  margin-bottom: 32px; /* Keep bottom margin */
+  box-shadow: 0 4px 24px rgba(40,81,151,0.10);
+  display: flex;
+  flex-direction: row; /* Arrange items horizontally */
+  align-items: flex-start; /* Align items to the top */
+  justify-content: flex-start; /* Start items from the left */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if space runs out */
+  gap: 30px; /* Add space between cards */
+  padding: 40px; /* Add padding inside the box */
+  /* font-size: 1.4em; */ /* Removed to allow content to define its own size */
+  /* color: #b3c6e0; */ /* Removed as content will have its own color */
+}
+
+/* ===== CAR LESSON CARD STYLES ===== */
+.car-lesson-card {
+  display: flex; /* Use flexbox to stack content */
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  text-decoration: none; /* Remove underline from link */
+  background-color: #FFD600; /* Bright yellow background */
+  color: #204080; /* Dark blue text */
+  padding: 30px 20px; /* Padding inside the card */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 220px; /* Fixed width for the card */
+  min-height: 180px; /* Ensure a decent height */
+  text-align: center; /* Center text content within the card */
+  /* margin-bottom: 20px; Removed as gap property on parent handles spacing */
+  justify-content: center; /* Vertically center content within the card */
+}
+
+.car-lesson-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Slightly larger shadow on hover */
+}
+
+.card-emoji {
+  font-size: 3em; /* Large emoji size */
+  /* font-weight: 600; If emoji is text-based and supports weight */
+  margin-bottom: 10px; /* Space below emoji */
+}
+
+.card-title {
+  font-size: 1.5em; /* Size for "Car" text */
+  font-weight: bold;
+  margin-top: 0; /* Reset margin if emoji has margin-bottom */
+  margin-bottom: 5px; /* Space above subtitle */
+}
+
+.card-subtitle {
+  font-size: 0.9em; /* Smaller size for subtitle */
+}
+
+/* Utility class if needed for other elements, though not used by the card directly */
+.hidden {
+  display: none !important;
+}
+.lesson-box-link {
+  text-decoration: none;
+  color: #204080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lesson-box {
+  background: #FFD600;
+  color: #285197;
+  padding: 32px 32px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-top: 16px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.lesson-box:hover {
+  background: #ffe066;
+  color: #204080;
+  box-shadow: 0 6px 18px rgba(40,81,151,0.18);
+}
+
+/* ===== SECTION 3: FOOTER ===== */
+.footer-section {
+  background: #285197;
+  color: #204080;
+  padding: 48px 0 24px 0;
+  text-align: center;
+}
+.footer-columns {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+.footer-col {
+  min-width: 220px;
+  text-align: left;
+  flex: 1 1 0;
+  background: #285197;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(40,81,151,0.18);
+  padding: 24px 18px;
+  margin: 0 0 24px 0;
+  transition: box-shadow 0.2s, background 0.2s;
+  color: #204080;
+}
+.footer-col h3 {
+  color: #ffffff;
+  font-size: 1.1em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+.footer-underline {
+  display: block;
+  height: 3px;
+  width: 36px;
+  background: #FFD600;
+  border-radius: 2px;
+  margin-top: 4px;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  content: "";
+}
+.footer-desc {
+  font-size: 1em;
+  margin-bottom: 24px;
+  color: #fff;
+  max-width: 320px;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+.footer-contact {
+  font-size: 1em;
+  color: #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.footer-social-link svg,
+.footer-contact .footer-social-link svg {
+  transition: fill 0.2s, color 0.2s;
+}
+.footer-social-link.mail:hover svg { fill: #FFD600; }
+.footer-social-link.phone:hover svg { fill: #4CAF50; }
+.footer-social-link.location:hover svg { fill: #03a9f4; }
+.footer-social-link { vertical-align: middle; margin-right: 10px; }
+.footer-social-link:last-child { margin-right: 0; }
+.footer-icon { margin-right: 8px; }
+.footer-bottom {
+  text-align: center;
+  font-size: 0.98em;
+  color: #b3c6e0;
+  margin-top: 0;
+  padding-bottom: 18px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .features, .footer-columns {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 0 16px;
+  }
+  .navbar-menu {
+    margin-top: 12px;
+  }
+  .footer-col {
+    min-width: 0;
+    width: 100%;
+  }
+}
+.card-emoji {
+  width:200px;
+  height:200px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
