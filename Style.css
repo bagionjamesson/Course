@@ -11,8 +11,10 @@ body {
   justify-content: space-between;
   background: #285197;
   padding: 0 48px;
+  position: relative; /* Needed for positioning the absolute dropdown menu */
   height: 70px;
 }
+
 .navbar-left {
   display: flex;
   align-items: center;
@@ -133,6 +135,38 @@ body {
   color: #fff; /* Ensure text color remains white on hover */
 }
 
+/* Styles for the hamburger toggler button */
+.navbar-toggler {
+  display: none; /* Hidden by default, shown in media query */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px; /* Width of the hamburger icon */
+    height: 25px; /* Height of the hamburger icon */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Ensure it's above other nav items */
+    margin-left: auto; /* Pushes hamburger to the right if other elements are in navbar-left */
+}
+
+.navbar-toggler .toggler-icon-bar {
+  display: block;
+    width: 100%;
+    height: 3px; /* Thickness of the bars */
+    background-color: #fff; /* Color of the bars */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler .toggler-icon-bar + .toggler-icon-bar {
+  margin-top: 6px; /* Spacing between bars */
+}
+
+/* Animation for hamburger to "X" when active */
+.navbar-toggler.active .toggler-icon-bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.navbar-toggler.active .toggler-icon-bar:nth-child(2) { opacity: 0; }
+.navbar-toggler.active .toggler-icon-bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 
 /* ===== SECTION 1: HERO ===== */
@@ -315,7 +349,8 @@ body {
   box-shadow: 0 6px 18px rgba(40,81,151,0.18);
 }
 
-/* ===== SECTION 3: FOOTER ===== */
+
+/* ====== SECTION 3: FOOTER ====== */
 .footer-section {
   background: #285197;
   color: #204080;
@@ -333,39 +368,27 @@ body {
   min-width: 220px;
   text-align: left;
   flex: 1 1 0;
-  background: #285197;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(40,81,151,0.18);
-  padding: 24px 18px;
+  background: #285197; /* Live site card background */
+  border-radius: 14px;  /* Live site card radius */
+  box-shadow: 0 4px 18px rgba(40,81,151,0.18); /* Live site card shadow */
+  padding: 24px 18px; /* Live site card padding */
   margin: 0 0 24px 0;
-  transition: box-shadow 0.2s, background 0.2s;
-  color: #204080;
+  color: #fff; /* Default text color for elements inside, like p.footer-desc */
 }
-.footer-col h3 {
-  color: #ffffff;
+/* Removed .footer-col:hover as live site doesn't change these properties on hover */
+
+
+.footer-header {
+  display: inline-block;
+}
+
+.footer-header h3 {
+  color: #ffffff; /* Live site heading color */
   font-size: 1.1em;
   font-weight: 700;
   margin-bottom: 12px;
   position: relative;
-  display: inline-block;
-}
-.footer-underline {
-  display: block;
-  height: 3px;
-  width: 36px;
-  background: #FFD600;
-  border-radius: 2px;
-  margin-top: 4px;
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  content: "";
-}
-.footer-desc {
-  font-size: 1em;
-  margin-bottom: 24px;
-  color: #fff;
-  max-width: 320px;
+   display: inline-block; /* Important for positioning the underline span if it's a child */
 }
 .footer-col ul {
   list-style: none;
@@ -376,37 +399,120 @@ body {
   margin-bottom: 10px;
 }
 .footer-col ul li a {
-  color: #ffffff;
+  color: #ffffff; /* Live site link color */
   text-decoration: none;
   font-size: 1em;
   transition: color 0.2s;
 }
 .footer-col ul li a:hover {
-  color: #ffffff;
+  color: #FFD600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .footer-contact {
+  color: #ffffff; /* Live site contact text color */
   font-size: 1em;
-  color: #ffffff;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+
+  
 }
-.footer-social-link svg,
-.footer-contact .footer-social-link svg {
-  transition: fill 0.2s, color 0.2s;
-}
-.footer-social-link.mail:hover svg { fill: #FFD600; }
-.footer-social-link.phone:hover svg { fill: #4CAF50; }
-.footer-social-link.location:hover svg { fill: #03a9f4; }
-.footer-social-link { vertical-align: middle; margin-right: 10px; }
-.footer-social-link:last-child { margin-right: 0; }
-.footer-icon { margin-right: 8px; }
 .footer-bottom {
   text-align: center;
   font-size: 0.98em;
   color: #b3c6e0;
   margin-top: 0;
   padding-bottom: 18px;
+}
+.footer-bottom hr { /* Style for the hr in footer bottom */
+    border: none;
+    border-top: 1px solid #3b4e7a;
+    margin: 24px 0 12px 0;
+}
+.footer-underline {
+  display: block;
+ height: 3px;        /* Live site style */
+  width: 36px;        /* Live site style */
+  background: #FFD600;
+  border-radius: 2px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) { /* Adjust breakpoint */
+  .autolearnph {
+    display: block; /* Ensure it's a block-level element */
+    /* width: ...; /* A defined width (or max-width) is usually needed for margin: auto to work */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .features, .footer-columns {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .navbar {
+    /* Keep navbar as a row to align logo and hamburger */
+    justify-content: space-between; /* Logo left, hamburger right */
+    align-items: center;
+    height: 70px; /* Maintain consistent height */
+    padding: 0 16px; /* Adjusted padding for mobile */
+    position: relative; /* For absolute positioning of the menu */
+  }
+
+  .hamburger-menu {
+    display: flex; /* Show the hamburger menu on small screens */
+  }
+
+  .nav-links {
+    display: none; /* Hide the menu by default on small screens */
+    flex-direction: column;
+    width: 100%;
+    position: absolute; /* Position it below the navbar */
+    top: 70px; /* Directly below the navbar (assuming navbar height is 70px) */
+    left: 0;
+    background-color: #285197; /* Match navbar background */
+    padding: 10px 0; /* Padding for the dropdown container */
+    z-index: 1000; /* Ensure it's above content below */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+  }
+
+  .nav-links.active { /* This class is toggled by JavaScript */
+    display: flex; /* Show the menu when active */
+  }
+
+  .nav-links li {
+    margin-left: 0;
+    margin-bottom: 0; /* Remove bottom margin, use padding/border on <a> */
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    display: block; /* Make links full width for easier tapping */
+    padding: 12px 20px; /* Adjust padding for touch targets */
+    border-bottom: 1px solid #3b5998; /* Subtle separator, using a color from your palette */
+  }
+  .nav-links li:last-child a {
+    border-bottom: none; /* No border for the last item */
+  }
+
+  .footer-col {
+    min-width: 0;
+    width: 90%; /* Give some space on sides */
+    max-width: 400px; /* Prevent them from becoming too wide */
+  }
+}
+
+.card-emoji {
+  width:200px;
+  height:20x;
+  object-fit: contain;
+  margin-bottom: 10px;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -416,22 +522,73 @@ body {
     align-items: center;
     gap: 24px;
   }
+  /* Adjust navbar padding for medium screens, but don't change its flex direction yet */
   .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 0 16px;
-  }
-  .navbar-menu {
-    margin-top: 12px;
+    padding: 0 24px;
   }
   .footer-col {
     min-width: 0;
     width: 100%;
   }
+  .footer-section {
+    padding: 40px 24px 24px 24px; /* Adjust footer padding */
+  }
 }
-.card-emoji {
-  width:200px;
-  height:200px;
-  object-fit: contain;
-  margin-bottom: 10px;
+
+/* Small screens - Hamburger menu activation. Adjust 768px breakpoint as needed. */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px; /* Further reduced padding for navbar */
+    justify-content: center; /* Center the .navbar-left (logo/title) */
+    position: relative; /* Ensure it's a positioning context for absolute children */
+  }
+
+  .navbar-menu {
+    display: none; /* Hide the menu by default on small screens */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Position below the navbar (height of navbar) */
+    left: 0;
+    background-color: #285197; /* Match navbar background */
+    border-top: 1px solid #4666a3; /* Optional: adds a line above the expanded menu */
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+    z-index: 1000; /* Ensures menu is above other content */
+    padding: 8px 0; /* Padding for the dropdown container */
+  }
+
+  .navbar-menu.active {
+    display: flex; /* Show the menu when active (toggled by JS) */
+  }
+
+  .navbar-menu li {
+    margin-left: 0; /* Remove left margin for stacked items */
+    width: 100%;
+    text-align: left; /* Or 'center' if you prefer */
+  }
+
+  .navbar-menu li a {
+    display: block; /* Make links take full width for easier tapping */
+    padding: 12px 24px; /* Adjust padding for menu items in dropdown */
+    border-radius: 0; /* No border-radius for individual items */
+    border-bottom: 1px solid #3b5a94; /* Subtle separator for items */
+  }
+
+  .navbar-menu li:last-child a {
+    border-bottom: none; /* Remove border from the last item */
+  }
+
+  .navbar-menu li a.active,
+  .navbar-menu li a:hover {
+    background: #4666a3; /* Hover/active style for dropdown items */
+    color: #fff;
+  }
+
+  .navbar-toggler {
+    display: block; /* Show the toggler button on small screens */
+    position: absolute; /* Position it relative to the navbar */
+    right: 16px; /* Align with navbar padding */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+  }
 }

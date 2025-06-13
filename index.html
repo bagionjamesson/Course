@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Modules</title>
+  <title>About</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="logo.png"> <!-- Assuming logo.png is in the parent directory (public/) -->
@@ -12,16 +12,23 @@
 </head>
 <body>
   <!-- Navigation/Menu -->
-  <nav class="navbar">
+   <nav class="navbar">
     <div class="navbar-left">
-      <a href="https://bagionjamesson.github.io/Home/" style="display: flex; align-items: center; text-decoration: none;"> <!-- Path to menu.html from Course/ -->
-        <img src="logo.png" alt="Logo" class="navbar-logo"> <!-- Path to logo.png from Course/ -->
+      <a href="https://bagionjamesson.github.io/Home/" style="display: flex; align-items: center; text-decoration: none;">
+        <img src="logo.png" alt="Logo" class="navbar-logo" style="width: 2em; height: 2em; margin-right: 14px;">
         <div class="navbar-title">
           <span class="auto">Auto</span><span class="learn">Learn</span> <span class="ph">PH</span>
         </div>
       </a>
     </div>
-     <ul class="navbar-menu">
+    <!-- Hamburger Toggler Button -->
+    <button class="navbar-toggler" type="button" aria-label="Toggle navigation" aria-expanded="false">
+      <span class="toggler-icon-bar"></span>
+      <span class="toggler-icon-bar"></span>
+      <span class="toggler-icon-bar"></span>
+    </button>
+    <!-- Navigation Menu -->
+    <ul class="navbar-menu">
       <li><a href="https://bagionjamesson.github.io/Home/">Home</a></li>
       <li><a href="https://bagionjamesson.github.io/Modules/">Modules</a></li>
       <li><a href="https://bagionjamesson.github.io/Resources/">Resources</a></li>
@@ -99,7 +106,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <hr style="border: none; border-top: 1px solid #3b4e7a; margin: 24px 0 12px 0;">
+      <hr class="footer-hr"> <!-- Replaced inline style with a class for consistency -->
       © 2025 AutoLearn PH / Bagion James Son. All rights reserved.
     </div>
   </footer>
