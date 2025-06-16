@@ -292,6 +292,8 @@ body {
   text-align: center; /* Center text content within the card */
   /* margin-bottom: 20px; Removed as gap property on parent handles spacing */
   justify-content: center; /* Vertically center content within the card */
+
+  
 }
 
 .car-lesson-card:hover {
@@ -304,9 +306,9 @@ body {
   /* font-weight: 600; If emoji is text-based and supports weight */
   margin-bottom: 10px; /* Space below emoji */
 }
-
+  
 .card-title {
-  font-size: 1.5em; /* Size for "Car" text */
+  font-size: 1.cm; /* Size for "Car" text */
   font-weight: bold;
   margin-top: 0; /* Reset margin if emoji has margin-bottom */
   margin-bottom: 5px; /* Space above subtitle */
@@ -347,9 +349,31 @@ body {
   background: #ffe066;
   color: #204080;
   box-shadow: 0 6px 18px rgba(40,81,151,0.18);
+
 }
-
-
+.car-lesson-card-fundamentals {
+  display: flex; /* Use flexbox to stack content */
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  text-decoration: none; /* Remove underline from link */
+  background-color: #FFD600; /* Bright yellow background */
+  color: #204080; /* Dark blue text */
+  padding: 30px 20px; /* Padding inside the card */
+  border-radius: 16px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 220px; /* Fixed width for the card */
+  min-height: 180px; /* Ensure a decent height */
+  text-align: center; /* Center text content within the card */
+  /* margin-bottom: 20px; Removed as gap property on parent handles spacing */
+  justify-content: center; /* Vertically center content within the card */
+}
+.card-title-fundamentals {
+  font-size: 1.5em; /* Size for "Car" text, adjusted to match .card-title */
+  font-weight: bold;
+  margin-top: 0; /* Reset margin if emoji has margin-bottom */
+  margin-bottom: 5px; /* Space above subtitle */
+}
 /* ====== SECTION 3: FOOTER ====== */
 .footer-section {
   background: #285197;
